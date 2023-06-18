@@ -17,7 +17,6 @@ public class TestBase {
     User user;
     UserApi userApi = new UserApi();
     private String bearerToken;
-
     @Before
     @Step("Открытие браузера и страницы, авторизация")
     public void setUp() {

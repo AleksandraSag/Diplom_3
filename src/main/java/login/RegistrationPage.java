@@ -1,4 +1,5 @@
 package login;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -39,14 +40,14 @@ public class RegistrationPage {
     public void clickSingInBtn() {
         driver.findElement(singInBtn).click();
     }
-
+    @Step("Регистрация нового пользователя")
     public void setRegistrationNewUser(String name, String email, String password) {
         setNameInput(name);
         setEmailInput(email);
         setPasswordInput(password);
         clickRegistrationBtn();
     }
-
+    @Step("Проверка сообщения об ошибке о коротком пароле")
     public void checkErrorAboutShortPassword() {
         assertThat("В авторизованном профиле отображается информационное сообщение", true,
                 equalTo(driver.findElement(errorShortPassword).isDisplayed()));

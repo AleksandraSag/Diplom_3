@@ -1,5 +1,6 @@
 package browser;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -9,6 +10,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 
 public class WebDriverFactory {
     private static final String URL = "https://stellarburgers.nomoreparties.site/";
+    @Step("Запуск браузера")
     public static WebDriver get(String browserName) {
 
         WebDriver driver;

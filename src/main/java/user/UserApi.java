@@ -1,4 +1,5 @@
 package user;
+import io.qameta.allure.Step;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
@@ -19,7 +20,7 @@ public class UserApi {
                 .setContentType(ContentType.JSON)
                 .build();
     }
-
+    @Step("Авторизация пользователя")
     public static ValidatableResponse userLogin(User user) {
         return given()
                 .spec(requestSpecification())
@@ -29,7 +30,7 @@ public class UserApi {
                 .post(LOGIN_API)
                 .then();
     }
-
+    @Step("Удаление пользователя")
     public static ValidatableResponse deleteUser(String bearerToken) {
         return given()
                 .spec(requestSpecification())
@@ -38,7 +39,7 @@ public class UserApi {
                 .then()
                 .statusCode(SC_ACCEPTED);
     }
-
+    @Step("Регистрация пользователя")
     public ValidatableResponse userReg(User user) {
         return given()
                 .spec(requestSpecification())
